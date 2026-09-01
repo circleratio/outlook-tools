@@ -1,0 +1,6 @@
+--
+{{message}}
+-- 
+山田 太郎
+一般社団法人 ○○○○
+https://example.com

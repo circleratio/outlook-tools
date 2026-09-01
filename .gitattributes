@@ -1,0 +1,3 @@
+# 改行コードは作業ツリー・リポジトリとも LF で統一する。
+# PowerShell ソースは UTF-8 BOM + LF（BOM があれば PS 5.1 は日本語を解析できる）。
+* text=auto eol=lf

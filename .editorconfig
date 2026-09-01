@@ -1,0 +1,21 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# Windows PowerShell 5.1 が日本語ソースを正しく解析するため BOM 必須
+# 改行は LF で統一（PowerShell 5.1 は LF でも解析可）
+[*.{ps1,psd1,psm1}]
+charset = utf-8-bom
+
+[*.{md,yml,yaml,json}]
+indent_size = 2
+charset = utf-8
+
+[*.{txt}]
+trim_trailing_whitespace = false

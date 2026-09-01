@@ -1,0 +1,25 @@
+# PowerShell / Pester
+testResults*.xml
+*.nupkg
+
+# エディタ / OS
+.vs/
+.vscode/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 一時ファイル
+scratch/
+*.tmp
+plan.json
+events.json
+
+# ローカル設定
+.claude/settings.local.json
+
+# outlook-signature の利用者データ（実物はコミットしない。*.example.txt を雛形に各自用意する）
+tools/outlook-signature/message.txt
+tools/outlook-signature/messages.txt
+tools/outlook-signature/template.txt
