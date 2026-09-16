@@ -23,3 +23,6 @@ events.json
 tools/outlook-signature/message.txt
 tools/outlook-signature/messages.txt
 tools/outlook-signature/template.txt
+
+# whois の人物辞書（個人情報を含むため各自ローカルで用意する）
+tools/whois/whois.md

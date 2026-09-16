@@ -1,6 +1,6 @@
 # outlook-tools
 
-Outlook / Microsoft 365 まわりの小さな社内ツールをまとめたリポジトリ。
+Outlook / Microsoft 365 まわりの小さなツールを寄せ集めたリポジトリ。
 各ツールは独立していて、共通の実行基盤は持たない（PowerShell モジュールと Claude Code アセットの寄せ集め）。
 
 ## ツール一覧
@@ -10,6 +10,7 @@ Outlook / Microsoft 365 まわりの小さな社内ツールをまとめたリ�
 | **mail-assistant** | [`tools/mail-assistant/`](tools/mail-assistant/) | Claude Code スラッシュコマンド | 受信箱一覧・返信ドラフト作成。MS365 コネクタ経由 |
 | **openslot** | [`tools/openslot/`](tools/openslot/) | PowerShell CLI ＋ Claude スキル | MS365 予定表から指定期間の空き時間を抽出（日程調整メール用） |
 | **outlook-signature** | [`tools/outlook-signature/`](tools/outlook-signature/) | PowerShell モジュール ＋ CLI ラッパー | クラシック版 Outlook デスクトップのメール署名を CLI から更新 |
+| **whois** | [`tools/whois/`](tools/whois/) | Claude Code スキル | 予定の参加者を人物辞書 `whois.md` と照合して「誰なのか」を明らかにする |
 
 各ツールの詳細・使いかた・終了コードはそれぞれの `README.md` を参照。
 
@@ -21,6 +22,7 @@ Claude Code はリポジトリ直下の `.claude/` しか探索しないため�
 |---|---|
 | `.claude/commands/{inbox-today,reply-draft}.md` | mail-assistant |
 | `.claude/skills/openslot/SKILL.md` | openslot（MCP 版） |
+| `.claude/skills/meeting-attendees/SKILL.md` | whois |
 
 `tools/<name>/` 側にはドキュメントと付随ファイル（`hint.md` など）だけを置く。
 
@@ -32,6 +34,7 @@ Claude Code はリポジトリ直下の `.claude/` しか探索しないため�
 | openslot（Graph 版） | Windows | 5.1+ | `Microsoft.Graph.Authentication`、`Calendars.Read` 委任同意 |
 | openslot（MCP 版） | Windows | 5.1+ | Microsoft 365 コネクタ接続済み |
 | outlook-signature | Windows | 5.1 または 7 | クラシック版 Outlook デスクトップ（レジストリ `16.0` 前提） |
+| whois | 任意（Claude Code 実行環境） | — | Microsoft 365 コネクタ接続済み、`tools/whois/whois.md`（各自作成・git 管理外） |
 
 ## 開発
 
