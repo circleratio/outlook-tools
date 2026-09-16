@@ -34,9 +34,13 @@ Markdown・YAML は UTF-8（BOM なし）。`.editorconfig` に定義済み。
 | ツール | Pester | 実行 |
 |---|---|---|
 | openslot | 3.x（Windows 同梱） | `Invoke-Pester -Path tools/openslot/tests` |
-| outlook-signature | 5.x（要 `Install-Module Pester -MinimumVersion 5.0`） | `Invoke-Pester tools/outlook-signature/tests` |
+| outlook-signature | 5.x（要 `Install-Module Pester -MinimumVersion 5.1`。`TestRegistry:` を使うため 5.1 未満不可） | `Invoke-Pester tools/outlook-signature/tests` |
 
-レジストリ／ファイルを触るテストは `TestDrive:` と一時キーで隔離済み。実環境には触れない。
+レジストリ／ファイルを触るテストは `TestDrive:` と Pester の `TestRegistry:` で隔離済み。
+ただし CLI／ラッパースクリプトを別プロセスとして実行するテスト
+（`Set-OutlookSignatureCli.Tests.ps1`、`Set-SeasonalOutlookSignature.Tests.ps1`）は、
+`TestRegistry:` ドライブが子プロセスから参照できないため、実 HKCU 配下に一意な一時キーを作り
+`AfterAll` で削除する方式を取る。
 
 ## 機能追加・変更フロー（spec-driven-dev）
 

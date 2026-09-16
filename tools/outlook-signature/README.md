@@ -159,7 +159,7 @@ schtasks /Create /TN "OutlookSeasonalSignature" /SC MONTHLY /D 1 /ST 08:00 /TR `
 Pester v5 系（開発環境は 6.1.0）が必要です。
 
 ```powershell
-Install-Module Pester -Scope CurrentUser -MinimumVersion 5.0   # 未導入の場合
+Install-Module Pester -Scope CurrentUser -MinimumVersion 5.1   # 未導入の場合（TestRegistry: を使うため 5.1 以上必須）
 Invoke-Pester .\tests
 ```
 

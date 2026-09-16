@@ -1,11 +1,7 @@
 ﻿BeforeAll {
     . (Join-Path $PSScriptRoot 'TestHelpers.ps1')
     Import-TargetModule
-    $script:TestKeyBase = "HKCU:\Software\__OLSIG_TEST__"
-}
-
-AfterAll {
-    if (Test-Path $script:TestKeyBase) { Remove-Item $script:TestKeyBase -Recurse -Force }
+    $script:TestKeyBase = "TestRegistry:"
 }
 
 Describe 'Test-RoamingSignatureEnabled' {

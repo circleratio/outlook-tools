@@ -1,6 +1,8 @@
 ﻿BeforeAll {
     . (Join-Path $PSScriptRoot 'TestHelpers.ps1')
     $script:Cli = Join-Path $PSScriptRoot '..\scripts\Set-OutlookSignatureCli.ps1'
+    # CLI は別プロセスで実行するため TestRegistry: (Pester のプロセス内ドライブ) が使えない。
+    # 実 HKCU 配下に一意な一時キーを作り、AfterAll で削除する。
     $script:TestKeyBase = "HKCU:\Software\__OLSIG_TEST__"
 
     function Invoke-Cli {
