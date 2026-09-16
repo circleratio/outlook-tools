@@ -18,7 +18,8 @@ Describe 'Set-AccountSignatureRegistry' {
         }
         (Get-ItemProperty -Path $key -Name 'New Signature').'New Signature' | Should -Be '標準'
         (Get-ItemProperty -Path $key -Name 'Reply-Forward Signature').'Reply-Forward Signature' | Should -Be '標準'
-        $sub = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey(($key -replace '^HKCU:\\', ''))
+        $realSubPath = (Get-Item -LiteralPath $key).PSPath -replace '^Microsoft\.PowerShell\.Core\\Registry::HKEY_CURRENT_USER\\', ''
+        $sub = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey($realSubPath)
         $sub.GetValueKind('New Signature') | Should -Be ([Microsoft.Win32.RegistryValueKind]::String)
     }
 
